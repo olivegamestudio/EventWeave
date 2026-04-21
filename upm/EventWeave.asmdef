@@ -1,0 +1,8 @@
+{
+  "name": "EventWeave",
+  "rootNamespace": "EventWeave",
+  "references": [],
+  "overrideReferences": true,
+  "precompiledReferences": ["EventWeave.dll"],
+  "autoReferenced": true
+}
