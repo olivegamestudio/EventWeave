@@ -15,6 +15,14 @@ dotnet add package EventWeave
 dotnet add package EventWeave.CommunityToolkit
 ```
 
+## Install into Unity
+
+In `Package Manager` add the following git url:
+
+```
+https://github.com/olivegamestudio/EventWeave.git?path=/upm
+```
+
 ## Quick start
 
 Define a message as a record:
