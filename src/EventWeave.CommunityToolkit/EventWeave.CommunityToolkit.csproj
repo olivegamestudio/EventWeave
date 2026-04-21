@@ -7,8 +7,10 @@
 		<LangVersion>latest</LangVersion>
 		<PackageId>EventWeave.CommunityToolkit</PackageId>
 		<Description>EventWeave adapter for CommunityToolkit.Mvvm IMessenger. Bridges EventWeave with existing MVVM messaging infrastructure.</Description>
-		<Version>0.3.0</Version>
+		<Version>0.4.0</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,6 +19,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EventWeave\EventWeave.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>

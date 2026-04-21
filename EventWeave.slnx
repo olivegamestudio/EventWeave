@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/Solution Items/Unity/">
+    <File Path="upm/EventWeave.asmdef" />
+    <File Path="upm/manifest.json" />
+    <File Path="upm/package.json" />
+  </Folder>
   <Project Path="src/EventWeave.CommunityToolkit/EventWeave.CommunityToolkit.csproj" Id="1e1d9758-368e-4922-a359-9df265ebc14e" />
   <Project Path="src/EventWeave/EventWeave.csproj" />
 </Solution>
