@@ -3,6 +3,6 @@
   "rootNamespace": "EventWeave",
   "references": [],
   "overrideReferences": true,
-  "precompiledReferences": ["EventWeave.dll"],
+  "precompiledReferences": [],
   "autoReferenced": true
 }

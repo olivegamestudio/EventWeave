@@ -7,7 +7,7 @@
 		<LangVersion>latest</LangVersion>
 		<PackageId>EventWeave</PackageId>
 		<Description>Lightweight event aggregation with zero dependencies. Pub/sub messaging for decoupled service-to-service communication.</Description>
-		<Version>0.4.5</Version>
+		<Version>0.4.6</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -16,10 +16,6 @@
 	<ItemGroup>
 	  <PackageReference Include="MissingAttributes" Version="1.1.0" />
 	</ItemGroup>
-
-	<Target Name="CopyToUpm" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)upm/Runtime/Plugins/" />
-	</Target>
 
 	<ItemGroup>
 		<None Include="../../README.md" Pack="true" PackagePath="" />

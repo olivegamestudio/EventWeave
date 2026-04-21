@@ -8,6 +8,8 @@
     <File Path="upm\manifest.json.meta" />
     <File Path="upm\package.json.meta" />
     <File Path="upm\Runtime.meta" />
+    <File Path="upm\Runtime\EventAggregator.cs.meta" />
+    <File Path="upm\Runtime\IEventAggregator.cs.meta" />
     <File Path="upm\Runtime\Plugins.meta" />
     <File Path="upm\Runtime\Plugins\EventWeave.dll.meta" />
   </Folder>
