@@ -12,6 +12,7 @@ No frameworks. No reflection. No magic. Just pub/sub.
 
 ```
 dotnet add package EventWeave
+dotnet add package EventWeave.CommunityToolkit
 ```
 
 ## Quick start
