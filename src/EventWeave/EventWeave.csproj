@@ -7,7 +7,7 @@
 		<LangVersion>latest</LangVersion>
 		<PackageId>EventWeave</PackageId>
 		<Description>Lightweight event aggregation with zero dependencies. Pub/sub messaging for decoupled service-to-service communication.</Description>
-		<Version>0.4.4</Version>
+		<Version>0.4.5</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

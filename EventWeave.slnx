@@ -1,10 +1,10 @@
 <Solution>
   <Folder Name="/Solution Items/" />
   <Folder Name="/Solution Items/Unity/">
-    <File Path="upm/EventWeave.asmdef" />
+    <File Path="upm/EventWeave.Runtime.asmdef" />
     <File Path="upm/manifest.json" />
     <File Path="upm/package.json" />
-    <File Path="upm\EventWeave.asmdef.meta" />
+    <File Path="upm\EventWeave.Runtime.asmdef.meta" />
     <File Path="upm\manifest.json.meta" />
     <File Path="upm\package.json.meta" />
     <File Path="upm\Runtime.meta" />
