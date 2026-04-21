@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "com.olivegamestudio.eventweave": "https://github.com/olivegamestudio/EventWeave.git?path=upm#v0.4.1"
+    "com.olivegamestudio.eventweave": "https://github.com/olivegamestudio/EventWeave.git?path=upm#v0.4.2"
   }
 }

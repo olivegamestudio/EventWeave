@@ -1,6 +1,6 @@
 {
   "name": "com.olivegamestudio.eventweave",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "displayName": "EventWeave",
   "description": "Lightweight event aggregation. Zero dependencies.",
   "unity": "2021.3",
