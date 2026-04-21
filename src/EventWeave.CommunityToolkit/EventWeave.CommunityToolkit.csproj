@@ -7,7 +7,6 @@
 		<LangVersion>latest</LangVersion>
 		<PackageId>EventWeave.CommunityToolkit</PackageId>
 		<Description>EventWeave adapter for CommunityToolkit.Mvvm IMessenger. Bridges EventWeave with existing MVVM messaging infrastructure.</Description>
-		<Version>0.4.5</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -15,6 +14,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="MinVer" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

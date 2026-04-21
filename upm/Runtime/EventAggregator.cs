@@ -5,6 +5,7 @@ namespace EventWeave
 	public sealed class EventAggregator : IEventAggregator
 	{
 		readonly object _lock = new();
+		
 		readonly Dictionary<Type, List<Subscription>> _subscriptions = new();
 
 		/// <inheritdoc />
@@ -16,7 +17,7 @@ namespace EventWeave
 			{
 				if (!_subscriptions.TryGetValue(typeof(TMessage), out List<Subscription>? subs))
 				{
-					subs = [];
+					subs = new List<Subscription>();
 					_subscriptions[typeof(TMessage)] = subs;
 				}
 
