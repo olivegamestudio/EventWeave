@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard20</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PackageId>EventWeave.CommunityToolkit</PackageId>
+		<Description>EventWeave adapter for CommunityToolkit.Mvvm IMessenger. Bridges EventWeave with existing MVVM messaging infrastructure.</Description>
+		<Version>0.2.0</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EventWeave\EventWeave.csproj" />
+	</ItemGroup>
+
+</Project>

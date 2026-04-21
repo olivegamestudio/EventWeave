@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard20</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PackageId>EventWeave</PackageId>
+		<Description>Lightweight event aggregation with zero dependencies. Pub/sub messaging for decoupled service-to-service communication.</Description>
+		<Version>0.2.0</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MissingAttributes" Version="1.1.0" />
+	</ItemGroup>
+
+</Project>
