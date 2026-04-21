@@ -1,63 +1,65 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace EventWeave;
-
-public sealed class EventAggregator : IEventAggregator
+namespace EventWeave
 {
-	readonly object _lock = new();
-	readonly Dictionary<Type, List<Subscription>> _subscriptions = new();
-
-	/// <inheritdoc />
-	public void Subscribe<TMessage>(object subscriber, Action<TMessage> action) where TMessage : class
+	public sealed class EventAggregator : IEventAggregator
 	{
-		Subscription subscription = new(new WeakReference(subscriber), message => action((TMessage)message));
+		readonly object _lock = new();
+		readonly Dictionary<Type, List<Subscription>> _subscriptions = new();
 
-		lock (_lock)
+		/// <inheritdoc />
+		public void Subscribe<TMessage>(object subscriber, Action<TMessage> action) where TMessage : class
 		{
-			if (!_subscriptions.TryGetValue(typeof(TMessage), out List<Subscription>? subs))
-			{
-				subs = [];
-				_subscriptions[typeof(TMessage)] = subs;
-			}
+			Subscription subscription = new(new WeakReference(subscriber), message => action((TMessage)message));
 
-			subs.Add(subscription);
-		}
-	}
-
-	/// <inheritdoc />
-	public void Unsubscribe<TMessage>(object subscriber) where TMessage : class
-	{
-		lock (_lock)
-		{
-			foreach (List<Subscription> subs in _subscriptions.Values)
+			lock (_lock)
 			{
-				subs.RemoveAll(s => !s.Subscriber.IsAlive || s.Subscriber.Target == subscriber);
+				if (!_subscriptions.TryGetValue(typeof(TMessage), out List<Subscription>? subs))
+				{
+					subs = [];
+					_subscriptions[typeof(TMessage)] = subs;
+				}
+
+				subs.Add(subscription);
 			}
 		}
-	}
 
-	/// <inheritdoc />
-	public void Publish<TMessage>(TMessage message, [CallerMemberName] string? caller = null, [CallerFilePath] string? file = null)
-		where TMessage : class
-	{
-		List<Action<object>> handlers;
-
-		lock (_lock)
+		/// <inheritdoc />
+		public void Unsubscribe<TMessage>(object subscriber) where TMessage : class
 		{
-			if (!_subscriptions.TryGetValue(typeof(TMessage), out List<Subscription>? subs))
-				return;
-
-			// Clean dead refs and snapshot
-			subs.RemoveAll(s => !s.Subscriber.IsAlive);
-			handlers = subs.Select(s => s.Handler).ToList();
+			lock (_lock)
+			{
+				foreach (List<Subscription> subs in _subscriptions.Values)
+				{
+					subs.RemoveAll(s => !s.Subscriber.IsAlive || s.Subscriber.Target == subscriber);
+				}
+			}
 		}
 
-		// Invoke outside lock
-		foreach (Action<object> handler in handlers)
+		/// <inheritdoc />
+		public void Publish<TMessage>(TMessage message, [CallerMemberName] string? caller = null,
+			[CallerFilePath] string? file = null)
+			where TMessage : class
 		{
-			handler(message);
-		}
-	}
+			List<Action<object>> handlers;
 
-	sealed record Subscription(WeakReference Subscriber, Action<object> Handler);
+			lock (_lock)
+			{
+				if (!_subscriptions.TryGetValue(typeof(TMessage), out List<Subscription>? subs))
+					return;
+
+				// Clean dead refs and snapshot
+				subs.RemoveAll(s => !s.Subscriber.IsAlive);
+				handlers = subs.Select(s => s.Handler).ToList();
+			}
+
+			// Invoke outside lock
+			foreach (Action<object> handler in handlers)
+			{
+				handler(message);
+			}
+		}
+
+		sealed record Subscription(WeakReference Subscriber, Action<object> Handler);
+	}
 }
